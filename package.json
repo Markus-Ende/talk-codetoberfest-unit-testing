@@ -1,0 +1,33 @@
+{
+  "name": "unit-testing-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build-ts": "tsc",
+    "start": "echo run example-test scripts",
+    "example-tests-simple": "ts-node src/example-tests-simple.ts",
+    "example-tests-with-framework": "ts-node src/example-tests-with-framework.ts",
+    "example-tests-see-it-fail": "ts-node node_modules/jasmine/bin/jasmine src/example-tests-see-it-fail.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-initial": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-initial.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-step1-do-one-thing": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-initial-1-one-assertion-per-test.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-step2-inline-setup": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-initial-2-inline-setup.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-step3-expect-literals": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-initial-3-expect-literals.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-final": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-final.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-inline-and-literal": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-inline-and-literal.ts --config=jasmine.json --reporter=jasmine-console-reporter",
+    "waiter-tests-mocking": "ts-node node_modules/jasmine/bin/jasmine src/beer-fest-example/waiter-tests-mocking.ts --config=jasmine.json --reporter=jasmine-console-reporter"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.8",
+    "@types/node": "^10.9.4",
+    "jasmine": "^3.2.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "prettier": "1.14.2",
+    "ts-mockito": "^2.3.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {}
+}
