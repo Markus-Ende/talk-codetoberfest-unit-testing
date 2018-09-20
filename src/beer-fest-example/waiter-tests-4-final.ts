@@ -1,11 +1,11 @@
 import "jasmine";
-import { instance, mock } from "ts-mockito";
+import { instance, mock, when } from "ts-mockito";
 import { Assignment } from "./model/assignment";
 import { Waiter } from "./model/waiter";
 
 /**
- * Final example with Assignment dummies using ts-mockito.
- * You could also stub the methods, if you don't like the nulls.
+ * Final example with Assignment dummies / stubs using ts-mockito.
+ * Choose your favorite.
  */
 describe("Waiters", function() {
   it("should create correct assignment record with no assignments", () => {
@@ -18,7 +18,24 @@ describe("Waiters", function() {
     );
   });
 
-  it("should create correct record with assignments", () => {
+  it("should create correct record with assignments (stubs)", () => {
+    const waiter = new Waiter("TestWaiter");
+    const assignment = mock(Assignment);
+    when(assignment.getBeerFestivalName()).thenReturn("TestFestival");
+    when(assignment.getDays()).thenReturn(0);
+    waiter.addAssignment(instance(assignment));
+    waiter.addAssignment(instance(assignment));
+
+    expect(waiter.createAssignmentRecord()).toEqual(
+      `Assignment record for TestWaiter:\n` +
+        `\tTestFestival:\t0\n` +
+        `\tTestFestival:\t0\n` +
+        `Total days: 0\n` +
+        `Estimated amount of beer to sell: 0`
+    );
+  });
+
+  it("should create correct record with assignments (dummy)", () => {
     const waiter = new Waiter("TestWaiter");
     waiter.addAssignment(instance(mock(Assignment)));
     waiter.addAssignment(instance(mock(Assignment)));
